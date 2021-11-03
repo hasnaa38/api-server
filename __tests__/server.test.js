@@ -25,35 +25,35 @@ describe('Web server', () => {
 
     // Testing the POST request (if it can create a book)
     test('POST requests work fine -> Can add a new book', async () => {
-        const response = await mockRequest.post('/books').send({
-            name: "last letters"
+        const response = await mockRequest.post('/subscribers').send({
+            name: "Maryam"
         });
         expect(response.status).toBe(201);
     });
 
     // Testing the GET request (if it can respond with all the foods)
-    it('GET requests work fine -> Can get all books', async () => {
-        const response = await mockRequest.get('/books');
+    it('GET requests work fine -> Can get all subscribers', async () => {
+        const response = await mockRequest.get('/subscribers');
         expect(response.status).toBe(200);
     });
 
     // Testing the GET request for one item (if it can read one item only)
     it('a single item GET requests work fine -> Can get a single record', async () => {
-        const response = await mockRequest.get('/books/1');
+        const response = await mockRequest.get('/subscribers/1');
         expect(response.status).toBe(200);
     });
 
     // Testing the PUT request (if it can update an item)
     it('PUT requests work fine -> Can update a record', async () => {
-        const response = await mockRequest.put('/books/1').send({
-            name: 'LAST LETTERS'
+        const response = await mockRequest.put('/subscribers/1').send({
+            name: 'Samar'
         });
         expect(response.status).toBe(201);
     });
 
     // Testing the DELETE request (if it can delete an item)
     it('can delete a record', async () => {
-        const response = await mockRequest.delete('/books/1');
+        const response = await mockRequest.delete('/subscribers/1');
         expect(response.status).toBe(204);
     });
 
