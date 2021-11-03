@@ -27,6 +27,11 @@ function start() {
     })
 }
 
+// proof of life 
+app.get('/', (req, res) => {
+    res.status(200).send('App running successfully. Use the \'subscribers\' endpoint to access the subscribers database and the \'books\' endpoint to access the books database')
+});
+
 app.use('*', errorHandler_404);
 app.use(errorHandler_500);
 
