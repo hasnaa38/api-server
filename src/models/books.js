@@ -17,6 +17,10 @@ const books = (sequelize, DataTypes) =>
         },
         image: {
             type: DataTypes.STRING
+        },
+        category: {
+            type: DataTypes.STRING,
+            allowNull:false
         }
     });
 

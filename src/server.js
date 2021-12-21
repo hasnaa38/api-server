@@ -12,6 +12,7 @@ const app = express();
 
 // const subscribersRouter = require('./routes/subscribers');
 const booksRouter = require('./routes/books');
+const categoryRouter = require('./routes/categories');
 
 // Global Middlewares
 app.use(express.json());
@@ -19,6 +20,7 @@ app.use(logger);
 
 // app.use(subscribersRouter);
 app.use(booksRouter);
+app.use(categoryRouter);
 
 const PORT = process.env.PORT || 4000;
 function start() {

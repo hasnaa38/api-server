@@ -16,18 +16,21 @@ let sequelizeOptions = process.env.NODE_ENV === 'production' ? {
 let sequelize = new Sequelize(DATABASE_URL, sequelizeOptions);
 
 const booksSchema = require('./books');
+const categoriesSchema = require('./categories');
 
 const booksModel = booksSchema(sequelize, DataTypes);
-
+const categoriesModel = categoriesSchema(sequelize, DataTypes);
 
 const Collection = require('./collection-class');
 
 const booksCollection = new Collection(booksModel);
+const categoriesCollection = new Collection(categoriesModel);
 
 module.exports = {
     db: sequelize,
     // subscribersCollection: subscribersCollection,
-    booksCollection: booksCollection
+    booksCollection: booksCollection,
+    categoriesCollection: categoriesCollection
 }
 
 
