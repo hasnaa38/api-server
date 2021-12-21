@@ -15,22 +15,24 @@ let sequelizeOptions = process.env.NODE_ENV === 'production' ? {
 
 let sequelize = new Sequelize(DATABASE_URL, sequelizeOptions);
 
-const subscribersSchema = require('./subscribers');
 const booksSchema = require('./books');
 
-const subscribersModel = subscribersSchema(sequelize, DataTypes);
 const booksModel = booksSchema(sequelize, DataTypes);
 
-subscribersModel.hasMany(booksModel,{foreignKey:'subscriberId',sourceKey:'id'});
-booksModel.belongsTo(subscribersModel,{foreignKey:'subscriberId',targetKey:'id'})
 
 const Collection = require('./collection-class');
 
-const subscribersCollection = new Collection(subscribersModel);
 const booksCollection = new Collection(booksModel);
 
 module.exports = {
     db: sequelize,
-    subscribersCollection: subscribersCollection,
+    // subscribersCollection: subscribersCollection,
     booksCollection: booksCollection
 }
+
+
+// const subscribersSchema = require('./subscribers');
+// const subscribersModel = subscribersSchema(sequelize, DataTypes);
+// subscribersModel.hasMany(booksModel,{foreignKey:'subscriberId',sourceKey:'id'});
+// booksModel.belongsTo(subscribersModel,{foreignKey:'subscriberId',targetKey:'id'})
+// const subscribersCollection = new Collection(subscribersModel);

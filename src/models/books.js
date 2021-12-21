@@ -2,13 +2,21 @@
 
 const books = (sequelize, DataTypes) =>
     sequelize.define('books', {
-        book_name: {
+        name: {
             type: DataTypes.STRING,
             allowNull:false
         },
-        subscriberId: {
-            type: DataTypes.INTEGER,
-            allowNull: false
+        description: {
+            type: DataTypes.STRING
+        },
+        price: {
+            type: DataTypes.INTEGER
+        },
+        inventoryCount: {
+            type: DataTypes.INTEGER
+        },
+        image: {
+            type: DataTypes.STRING
         }
     });
 
