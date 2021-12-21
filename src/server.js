@@ -2,13 +2,14 @@
 
 const express = require('express');
 require('dotenv').config();
-
+const cors = require("cors");
 // local modules
 const errorHandler_404 = require('./error-handlers/404');
 const errorHandler_500 = require('./error-handlers/500');
 const logger = require('./middleware/logger');
 
 const app = express();
+app.use(cors({ origin: '*' }));
 
 // const subscribersRouter = require('./routes/subscribers');
 const booksRouter = require('./routes/books');
